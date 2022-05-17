@@ -1,4 +1,5 @@
 # Import Libralies
+from datetime import date
 import tableauserverclient as TSC
 import config as cfg
 import urllib3
@@ -31,5 +32,5 @@ def getViewItem(username,password,site_id,target_view):
 viewItem = getViewItem(cfg.username,cfg.password,site_id,target_view)
 with server.auth.sign_in(tableau_auth):
     server.views.populate_image(viewItem)
-    with open('./{}.png'.format(target_view),'wb') as v:
+    with open('./{}.png'.format(target_view + '_' + str(date.today())),'wb') as v:
         v.write(viewItem.image)

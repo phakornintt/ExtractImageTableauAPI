@@ -1,27 +1,11 @@
-from office365.runtime.auth.authentication_context import AuthenticationContext
-from office365.sharepoint.client_context import ClientContext
+# from office365.runtime.auth.authentication_context import AuthenticationContext
+# from office365.sharepoint.client_context import ClientContext
 import config as cfg
 import os
-
-# baseurl = 'https://bacthailand.sharepoint.com'
-# basesite = '/sites/ConsultingTeam' # every share point has a home.
-# siteurl = baseurl + basesite
-#
-# localpath = './Dashboard 10.png'
-# remotepath = 'test/file.txt' # existing folder path under sharepoint site.
-#
-# ctx_auth = AuthenticationContext(siteurl)
-# ctx_auth.acquire_token_for_user(cfg.userMS, cfg.passMS)
-# ctx = ClientContext(siteurl, ctx_auth) # make sure you auth to the siteurl.
-#
-# with open(localpath, 'rb') as content_file:
-#     file_content = content_file.read()
-#
-# dir, name = os.path.split(remotepath)
-# file = ctx.web.get_folder_by_server_relative_url(dir).upload_file(name, file_content).execute_query()
-
 import requests
 from shareplum import Office365
+from datetime import date
+import datetime
 
 # Set Login Info
 username = cfg.userMS
@@ -30,7 +14,7 @@ site_name = 'ConsultingTeam'
 base_path = 'https://bacthailand.sharepoint.com'
 doc_library = 'Shared%20Documents'
 nested_folder = 'Shared%20Documents/General/Test' #if you want to upload in nested folders else nested_folder = doc_library
-file_name = "Dashboard 10.png" #when your file in the same directory
+file_name = "Dashboard 10{}.png".format('_' + str(date.today())) #when your file in the same directory
 
 # Obtain auth cookie
 authcookie = Office365(base_path, username=username, password=password).GetCookies()
