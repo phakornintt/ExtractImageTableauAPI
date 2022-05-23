@@ -24,9 +24,15 @@ pip install Office365-REST-Python-Client
 ``` Ruby
 pip install SharePlum
 ```
-Create config.py following template before use
+# How to use
+1. Create config.py following template before use
 ``` Ruby
 username = 'TABLEAU SERVER USERNAME'
 password = 'TABLEAU SERVER PASSWORD'
 channelAccTkn = 'CHANNEL ACESS TOKEN (Messaging API)'
 ```
+2. Open ngrok to use your localhost to online
+``` 
+ngrok http 5000
+```
+3. copy https address and replace endpoint in app.py. Then, excecute get_image.py, app.py respectively.
