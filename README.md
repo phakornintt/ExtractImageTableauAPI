@@ -15,17 +15,17 @@ Afterward, push the dashboard image to Sharepoint by using Office365-REST-Python
 # Installation
 Use pip:
 
-```
+``` Ruby
 pip install tableauserverclient
 ```
-```
+``` Ruby
 pip install Office365-REST-Python-Client
 ```
-```
+``` Ruby
 pip install SharePlum
 ```
+Create config.py before use
 ``` Ruby
-config.py
 username = 'TABLEAU SERVER USERNAME'
 password = 'TABLEAU SERVER PASSWORD'
 channelAccTkn = 'CHANNEL ACESS TOKEN (Messaging API)'
