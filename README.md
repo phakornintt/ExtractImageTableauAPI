@@ -24,3 +24,9 @@ pip install Office365-REST-Python-Client
 ```
 pip install SharePlum
 ```
+``` Ruby
+config.py
+username = 'TABLEAU SERVER USERNAME'
+password = 'TABLEAU SERVER PASSWORD'
+channelAccTkn = 'CHANNEL ACESS TOKEN (Messaging API)'
+```
