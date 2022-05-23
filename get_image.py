@@ -32,5 +32,5 @@ def getViewItem(username,password,site_id,target_view):
 viewItem = getViewItem(cfg.username,cfg.password,site_id,target_view)
 with server.auth.sign_in(tableau_auth):
     server.views.populate_image(viewItem)
-    with open('./{}.png'.format(target_view + '_' + str(date.today())),'wb') as v:
+    with open('./static/images/{}.png'.format(target_view + '_' + str(date.today())),'wb') as v:
         v.write(viewItem.image)
