@@ -24,7 +24,7 @@ pip install Office365-REST-Python-Client
 ``` Ruby
 pip install SharePlum
 ```
-Create config.py before use
+Create config.py following template before use
 ``` Ruby
 username = 'TABLEAU SERVER USERNAME'
 password = 'TABLEAU SERVER PASSWORD'
