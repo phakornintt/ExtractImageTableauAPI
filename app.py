@@ -3,12 +3,13 @@ import requests
 import json
 import config as cfg
 import os
+import urllib.parse
 from datetime import date
 
 folder_path = os.path.join('static', 'images')
 filename = 'Dashboard 10_'+ str(date.today()) +'.png'
 file_path = folder_path + '/{}'.format(filename)
-endpoint = 'https://0a87-110-77-146-31.ap.ngrok.io' # Change endpoint every restart ngrok
+endpoint = 'https://9638-182-232-196-183.ap.ngrok.io' # Change endpoint every restart ngrok
 
 app = Flask(__name__)
 @app.route('/', methods=['POST','GET'])
@@ -21,14 +22,13 @@ def webhook():
         message = payload['events'][0]['message']['text']
         message = message.lower()
         print(message)
-        if 'test' in message.lower():
-            Reply_image = f"{endpoint}/static/images/Dashboard%2010_2022-05-23.png"
-            Reply_imagePrev = f"{endpoint}/static/images/Dashboard%2010_2022-05-23.png"
-            # Reply_image = "./Dashboard 10.png"
-            # Reply_imagePrev = "./Dashboard 10.png"
+        if 'dashboard' in message.lower():
+            Reply_image = f"{endpoint}/static/images/{urllib.parse.quote(filename)}"
+            Reply_imagePrev = f"{endpoint}/static/images/{urllib.parse.quote(filename)}"
             ReplyImage(Reply_token, Reply_image, Reply_imagePrev, cfg.channelAccTkn)
         else:
-            "Didn't have this command yet."
+            Reply_messasge = "Didn't have this command yet."
+            ReplyMessage(Reply_token,Reply_messasge,cfg.channelAccTkn)
         return request.json, 200
     else:
         abort(400)
